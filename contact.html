@@ -26,6 +26,16 @@
             <section id="contact-container">
                 <h2>Get in Touch with Your King</h2>
                 <form id="contact-form">
+                    <label class="form-label date-input" for="date-input">Today's Date:</label>
+                    <input type="date" class="form-input" id="date-input" value="" required />
+                    <label class="form-label" for="name-input">Tenant First Name:</label>
+                    <input type="text" class="form-input" id="name-input" value="" required />
+                    <label class="form-label" for="email-input">Your Email:</label>
+                    <input type="email" class="form-input" id="email-input" value="" required />
+                    <label class="form-label" for="tel-input">Your Cell #:</label>
+                    <input type="tel" class="form-input" id="tel-input" value="" required />
+                    <label class="form-label" for="issue-input">The Issue:</label>
+                    <textarea class="form-textarea" id="issue-input" cols="50" rows="5" required></textarea>
                     <button type="submit" id="send-msg-btn">Send Message</button>
                 </form> 
             </section>
