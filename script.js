@@ -24,7 +24,7 @@ footerSpan.textContent = `${monthString()} ${year}`;
 // Create an element to hold that text
 // Display that element to main feed
 const postInputElement = document.querySelector("#post-text");
-const postInputElementText = postInputElement.value;
+const postInputElementText = postInputElement.innerText;
 const mainFeedContainer = document.querySelector("#feed");
 const submitPostButton = document.querySelector("#submit-post");
 
@@ -42,13 +42,13 @@ const displayPosts = () => {
     postContainer.classList.add("post-container");
     mainFeedContainer.appendChild(postContainer);
     
-    if (postInputElementText === null) {
+    if (!postInputElementText) {
         alert("No text entered. Create a post first.");
-    } else {
-        postContainer.innerHTML = `
-            <p>${postInputElementText}<p>
-        `;
-    } 
+    }
+
+    postContainer.innerHTML = `
+        <p>${postInputElementText}<p>
+    `; 
 };
 
 submitPostButton.addEventListener("click", displayPosts);
