@@ -19,3 +19,36 @@ const monthString = () => {
 };
 
 footerSpan.textContent = `${monthString()} ${year}`;
+
+// Read text from input on home page
+// Create an element to hold that text
+// Display that element to main feed
+const postInputElement = document.querySelector("#post-text");
+const postInputElementText = postInputElement.value;
+const mainFeedContainer = document.querySelector("#feed");
+const submitPostButton = document.querySelector("#submit-post");
+
+const postObject = {
+    postId: `${year}-${currentMonth}-${postInputElementText.split(",").splice(0,3).join("")}`,
+    postText: postInputElement.value,
+};
+
+const mainFeedPosts = [];
+
+const setToFeedArray = () => {};
+
+const displayPosts = ({postText}) => {
+    const postContainer = document.createElement("div");
+    postContainer.classList.add("post-container");
+    mainFeedContainer.appendChild(postContainer);
+    
+    if (!{postText}) {
+        alert("No text entered. Create a post first.");
+    }
+
+    postParagraph.innerHTML = `
+        <p>${postText}<p>
+    `; 
+};
+
+submitPostButton.addEventListener("click", displayPosts);
