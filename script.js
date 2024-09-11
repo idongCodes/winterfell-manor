@@ -37,17 +37,17 @@ const mainFeedPosts = [];
 
 const setToFeedArray = () => {};
 
-const displayPosts = ({postText}) => {
+const displayPosts = () => {
     const postContainer = document.createElement("div");
     postContainer.classList.add("post-container");
     mainFeedContainer.appendChild(postContainer);
     
-    if (!{postText}) {
+    if (!postObject.postText) {
         alert("No text entered. Create a post first.");
     }
 
     postContainer.innerHTML = `
-        <p>${postText}<p>
+        <p>${postObject.postText}<p>
     `; 
 };
 
