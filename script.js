@@ -46,7 +46,7 @@ const displayPosts = ({postText}) => {
         alert("No text entered. Create a post first.");
     }
 
-    postParagraph.innerHTML = `
+    postContainer.innerHTML = `
         <p>${postText}<p>
     `; 
 };
