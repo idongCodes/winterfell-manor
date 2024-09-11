@@ -24,9 +24,11 @@ footerSpan.textContent = `${monthString()} ${year}`;
 // Create an element to hold that text
 // Display that element to main feed
 const postInputElement = document.querySelector("#post-text");
-const postInputElementText = postInputElement.innerText;
+const postInputElementText = postInputElement.value;
 const mainFeedContainer = document.querySelector("#feed");
 const submitPostButton = document.querySelector("#submit-post");
+
+const reset = () => postInputElement.value = "";
 
 const postObject = {
     postId: `${year}-${currentMonth}-${postInputElementText.split(",").splice(0,3).join("")}`,
@@ -35,20 +37,24 @@ const postObject = {
 
 const mainFeedPosts = [];
 
-const setToFeedArray = () => {};
+const setToFeedArray = () => {
+    mainFeedPosts.push(postObject);
+};
 
 const displayPosts = () => {
     const postContainer = document.createElement("div");
     postContainer.classList.add("post-container");
     mainFeedContainer.appendChild(postContainer);
     
-    if (!postInputElementText) {
+    if (postInputElement.value) {
+        postContainer.innerHTML = `
+            <p>${postInputElement.value}</p>
+        `;
+        reset();
+    } else {
         alert("No text entered. Create a post first.");
-    }
-
-    postContainer.innerHTML = `
-        <p>${postInputElementText}<p>
-    `; 
+    } 
 };
 
+submitPostButton.addEventListener("click", setToFeedArray);
 submitPostButton.addEventListener("click", displayPosts);
