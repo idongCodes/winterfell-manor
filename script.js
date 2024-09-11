@@ -30,7 +30,7 @@ const submitPostButton = document.querySelector("#submit-post");
 
 const postObject = {
     postId: `${year}-${currentMonth}-${postInputElementText.split(",").splice(0,3).join("")}`,
-    postText: postInputElement.value,
+    postText: postInputElementText,
 };
 
 const mainFeedPosts = [];
@@ -42,13 +42,13 @@ const displayPosts = () => {
     postContainer.classList.add("post-container");
     mainFeedContainer.appendChild(postContainer);
     
-    if (!postObject.postText) {
+    if (postInputElementText === null) {
         alert("No text entered. Create a post first.");
-    }
-
-    postContainer.innerHTML = `
-        <p>${postObject.postText}<p>
-    `; 
+    } else {
+        postContainer.innerHTML = `
+            <p>${postInputElementText}<p>
+        `;
+    } 
 };
 
 submitPostButton.addEventListener("click", displayPosts);
